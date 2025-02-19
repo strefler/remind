@@ -224,7 +224,8 @@ all_te          "all energy technologies, including from modules"
         gridwindoff     "grid between areas with high wind offshore production and the rest"
 
         weathering      "enhanced weathering"
-        dac             "direct air capture"
+        dac_lt          "low-temperature direct air capture"
+		dac_ht          "high-temperature direct air capture"
         oae_ng          "ocean akalinity ehnacement via ocean liming using a traditional calciner"
         oae_el          "ocean akalinity ehnacement via ocean liming using a novel calciner technology"
         x_gas2elec

@@ -73,7 +73,7 @@ q33_co2emi_non_atm_gas(t, regi, te_ccs33)..
 q33_ccsbal(t, regi, ccs2te(ccsCo2(enty), enty2, te))..
     sum(teCCS2rlf(te, rlf), vm_co2capture_cdr(t, regi, enty, enty2, te, rlf))
     =e=
-    - vm_emiCdrTeDetail(t, regi, "dac")
+    - vm_emiCdrTeDetail(t, regi, te_dac33)
     + s33_capture_rate * (
         sum(te_ccs33, v33_co2emi_non_atm_gas(t, regi, te_ccs33))
         + sum(te_oae33, v33_co2emi_non_atm_calcination(t, regi, te_oae33))
@@ -98,10 +98,10 @@ q33_H2bio_lim(t,regi)..
 *'  Calculation of FE demand for DAC, i.e., electricity demand for ventilation,
 *'  and heat demand.
 ***---------------------------------------------------------------------------
-q33_DAC_FEdemand(t,regi,entyFe2)$sum(entyFe, fe2cdr(entyFe,entyFe2,"dac"))..
-    sum(fe2cdr(entyFe,entyFe2,"dac"), v33_FEdemand(t,regi,entyFe,entyFe2,"dac"))
+q33_DAC_FEdemand(t,regi,entyFe2)$sum(entyFe, fe2cdr(entyFe,entyFe2,te_dac33))..
+    sum(fe2cdr(entyFe,entyFe2,te_dac33), v33_FEdemand(t,regi,entyFe,entyFe2,te_dac33))
     =e=
-    p33_fedem("dac", entyFe2) * sm_EJ_2_TWa * (- vm_emiCdrTeDetail(t,regi,"dac"))
+    p33_fedem(te_dac33, entyFe2) * sm_EJ_2_TWa * (- vm_emiCdrTeDetail(t,regi,te_dac33))
     ;
 
 ***---------------------------------------------------------------------------

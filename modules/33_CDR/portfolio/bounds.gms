@@ -38,10 +38,10 @@ v33_co2emi_non_atm_calcination.fx(t,regi,te_oae33)$(t.val lt 2025) = 0;
 vm_co2capture_cdr.fx(t,regi,enty,enty2,te,rlf)$(ccs2te(enty,enty2,te) AND t.val lt 2025) = 0;
 
 *** Set minimum DAC capacities (if available) to help the solver find the technology and exclude fegas and feh2s for low-temperature dac
-if (te_used33("dac"),
-    vm_cap.lo(t,regi,"dac",rlf)$(teNoTransform2rlf33("dac",rlf) AND (t.val ge 2030)) = sm_eps;
-    v33_FEdemand.fx(t,regi,"fegas","fehes","dac") = 0;
-    v33_FEdemand.fx(t,regi,"feh2s","fehes","dac") = 0;
+if (te_used33(te_dac33),
+    vm_cap.lo(t,regi,te_dac33,rlf)$(teNoTransform2rlf33(te_dac33,rlf) AND (t.val ge 2030)) = sm_eps;
+*    v33_FEdemand.fx(t,regi,"fegas","fehes","dac") = 0;
+*    v33_FEdemand.fx(t,regi,"feh2s","fehes","dac") = 0;
 );
 
 *** Bounds for enhanced weathering

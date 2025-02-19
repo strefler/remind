@@ -9,8 +9,10 @@
 *' @code
 *' #### DAC input data
 *' FE demand from Beuttler et al. 2019 (Climeworks)
-p33_fedem("dac", "feels") = 5.28; !! FE demand electricity for ventilation
-p33_fedem("dac", "fehes") = 21.12; !! FE demand heat for material recovery
+p33_fedem("dac_lt", "feels") = 1.17; !! FE demand electricity for ventilation
+p33_fedem("dac_lt", "fehes") = 21.64; !! FE demand heat for material recovery
+p33_fedem("dac_ht", "feels") = 4.83; !! FE demand electricity for ventilation
+p33_fedem("dac_ht", "fehes") = 19.25; !! FE demand heat for material recovery
 
 
 *' #### EW input data

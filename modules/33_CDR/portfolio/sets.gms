@@ -10,7 +10,8 @@ sets
 te_all33(all_te)  "all CDR technologies"
 /
     weathering	"enhanced weathering"
-    dac		"direct air capture"
+    dac_lt		"low-temperature direct air capture"
+	dac_ht		"high-temperature direct air capture"
     oae_ng        "ocean akalinity ehnacement via ocean liming using a traditional calciner"
     oae_el        "ocean akalinity ehnacement via ocean liming using a novel calciner technology"
 /
@@ -18,6 +19,8 @@ te_all33(all_te)  "all CDR technologies"
 te_used33(all_te) "used CDR technologies (specified by switches)"
 
 te_oae33(all_te)    "OAE technologies used"
+
+te_dac33(all_te)    "DAC technologies used"
 
 teNoTransform33(all_te) "used CDR technologies that do not transform energy but still have investment and O&M costs (like storage or grid)"
 
@@ -31,11 +34,13 @@ te_ccs33(all_te) "used CDR technologies that require CCS"
 
 fe2cdr(all_enty,all_enty,all_te) "mapping of FE carriers supplying FE demand for all technologies"
 /
-      feels.feels.dac
-      fehes.fehes.dac
-      feels.fehes.dac
-      feh2s.fehes.dac
-      fegas.fehes.dac
+      feels.feels.dac_lt
+      fehes.fehes.dac_lt
+      feels.fehes.dac_lt
+	  
+	  feels.feels.dac_ht
+      feh2s.fehes.dac_ht
+      fegas.fehes.dac_ht
 
       feels.feels.weathering
       fedie.fedie.weathering
@@ -63,12 +68,14 @@ rlf_cz33(rlf) "representing weathering rates depending on climate zones accordin
 ***-------------------------------------------------------------------------
 
 if(cm_33DAC eq 1,
-      te_used33("dac") = YES;
-      teNoTransform33("dac") = YES;
-      teNoTransform2rlf33("dac", "1") = YES;
-      teAdj33("dac") = YES;
-      teLearn33("dac") = YES;
-      te_ccs33("dac") = YES;
+	  te_dac33("dac_ht") = YES;
+      te_dac33("dac_lt") = YES;
+	  te_used33(te_dac33) = YES;
+      teNoTransform33(te_dac33) = YES;
+      teNoTransform2rlf33(te_dac33, "1") = YES;
+      teAdj33(te_dac33) = YES;
+      teLearn33(te_dac33) = YES;
+      te_ccs33(te_dac33) = YES;
 );
 
 if(cm_33EW eq 1,
