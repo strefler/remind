@@ -153,17 +153,17 @@ eta                 1.00        1.00          1.00           1.00
 omf                 0.02        0.02          0.02           0.02
 lifetime              45          45            45             45              
 
-+             weathering         dac      oae_ng      oae_el
-tech_stat                          4
-inco0               0.01       18800         200         400
-mix0                   0           0           0           0
-eta                 1.00        1.00        1.00        1.00
-omf                 0.84       0.025        0.35        0.17
-omv                    0
-lifetime              20          20          25          25
-incolearn                      14000
-ccap0                         0.0008
-learn                           0.15
++             weathering      dac_lt	    dac_ht      oae_ng      oae_el
+tech_stat                          4	        4
+inco0               0.01       32968	     4600         200         400
+mix0                   0           0 	        0           0           0
+eta                 1.00        1.00 	     1.00        1.00        1.00
+omf                 0.84        0.26 	     0.36        0.35        0.17
+omv                    0	4504	     1685
+lifetime              20          25	       25          25          25
+incolearn                      30970	     2754
+ccap0                         0.0008	       
+learn                           0.14	     0.10
 
 $ifthen.cm_subsec_model_steel "%cm_subsec_model_steel%" == "processes"
 +                     bf         bof         idr         eaf
